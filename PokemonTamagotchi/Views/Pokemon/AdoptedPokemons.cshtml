@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Pokemon>
+
+@{
+    ViewData["Title"] = "Pokémon Adotados";
+}
+
+<h2>Pokémon Adotados</h2>
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach (var pokemon in Model)
+        {
+            <li>@pokemon.Name</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Nenhum Pokémon adotado.</p>
+}

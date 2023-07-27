@@ -1,0 +1,59 @@
+﻿@using PokemonTamagotchi.Models;
+
+@model Pokemon
+
+@{
+    ViewData["Title"] = "Pokemon";
+}
+
+<h2>Pesquisar Pokémon por ID</h2>
+<form method="get" action="/Pokemon/Details">
+    <label for="pokemonId">ID do Pokémon:</label>
+    <input type="text" name="id" id="pokemonId" required />
+    <button type="submit">Pesquisar</button>
+</form>
+
+<hr />
+
+@if (Model != null)
+{
+    <div>
+        <h2>@Model.Name</h2>
+
+        <div>
+            <strong>ID:</strong> @Model.Id<br />
+            <strong>Peso:</strong> @Model.Weight<br />
+            <strong>Altura:</strong> @Model.Height<br />
+            <strong>Espécie:</strong> @Model.Species.Name<br />
+            <strong>Habilidades:</strong>
+            <ul>
+                @foreach (var ability in Model.Abilities)
+                {
+                    <li>@ability.AbilityAbility.Name</li>
+                }
+            </ul>
+            <strong>Movimentos:</strong>
+            <ul>
+                @foreach (var move in Model.Moves)
+                {
+                    <li>@move.MoveMove.Name</li>
+                }
+            </ul>
+            <strong>Stats:</strong>
+            <ul>
+                @foreach (var stat in Model.Stats)
+                {
+                    <li>@stat.StatStat.Name: @stat.BaseStat</li>
+                }
+            </ul>
+        </div>
+    </div>
+}
+else
+{
+    <p>Pesquise um Pokémon por ID acima.</p>
+}
+
+<form method="post" action="/Pokemon/Adocao">
+    <button type="submit">Adotar</button>
+</form>

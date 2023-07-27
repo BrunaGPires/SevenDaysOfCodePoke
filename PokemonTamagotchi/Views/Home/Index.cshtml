@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bem vindo</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>@Html.ActionLink("Ver sobre pokemon", "Details", "Pokemon")</p>
+        <p>@Html.ActionLink("Ver pokemon adotados", "AdoptedPokemons", "Adocao")</p>
+        <p>@Html.ActionLink("Sair", "Logout")</p>
+    </div>
+</div>
